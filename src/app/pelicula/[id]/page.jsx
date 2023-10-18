@@ -8,8 +8,8 @@ export default async function DetailsFilm({ params }) {
   const film = await getFilmByID(id);
 
   return (
-    <div className="flex flex-col w-full h-auto">
-      <img
+    <div className="flex flex-col w-full h-auto" id="loadingFilm">
+      <img id="loadingImg"
         className="object-cover h-[1200px] object-top"
         src={GetPoster(film.backdrop_path, IMAGE_SIZES.backdrop_sizes.original)}
         alt={film.title}
@@ -25,7 +25,7 @@ export default async function DetailsFilm({ params }) {
           />
 
           <div className="w-full h-full pl-10">
-            <div className="flex flex-row  items-end justify-start space-x-4 w-auto  ">
+            <div className="flex flex-row  items-end justify-start space-x-4 w-auto  mb-6">
               <p className="text-3xl border-2 rounded-md p-2">
                 {(Math.round(film.vote_average * 100) / 100).toFixed(1)}
               </p>

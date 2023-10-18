@@ -34,11 +34,11 @@ export default function NavBar() {
               <Link href={route}>{label}</Link>
             </li>
           ))}
-          <SearchButton prop={onHandleDialog} />
+          <SearchButton onHandleDialog={onHandleDialog} />
         </ul>
       </nav>
 
-      <SearchDialog prop={openDialog} />
+      <SearchDialog isOpen={openDialog} onHandleDialog={onHandleDialog} />
     </header>
   );
 }

@@ -25,3 +25,18 @@ body {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #222252;
 }
+
+#loadingFilm {
+  -webkit-animation: 2s ease 0s normal forwards 1 fadein; /* Aumenta la duración a 2 segundos para una transición más suave */
+  animation: 2s ease 0s normal forwards 1 fadein;
+}
+
+@keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: 1; } /* Establece solo dos keyframes, uno al principio y otro al final */
+}
+
+@-webkit-keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

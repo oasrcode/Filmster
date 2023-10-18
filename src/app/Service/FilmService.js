@@ -1,10 +1,27 @@
 import {
   OPTIONS,
   URL_GET_FILM_BY_ID,
+  URL_SEARCH_MOVIE,
   URL_TOP_RATED,
   URL_TRENDING_FILMS,
-  URL_TRENDING_SERIES,
 } from "../Config/FetchConfig";
+
+export async function getFilmBySearch(search) {
+  try {
+    const response = await fetch(URL_SEARCH_MOVIE(search), OPTIONS);
+    if (!response) {
+      throw new Error(`Error response empty! =>${URL_SEARCH_MOVIE(search)}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    throw new Error(
+      `Error at fetching datta at getFilmBySearch url =>${URL_SEARCH_MOVIE(
+        search
+      )}`
+    );
+  }
+}
 
 export async function getFilmsTrending() {
   try {
@@ -17,21 +34,6 @@ export async function getFilmsTrending() {
   } catch (err) {
     throw new Error(
       `Error at fetching datta at getFilmsTrending url =>${URL_TRENDING_FILMS}`
-    );
-  }
-}
-
-export async function getSeriesTrending() {
-  try {
-    const response = await fetch(URL_TRENDING_SERIES, OPTIONS);
-    if (!response) {
-      throw new Error(`Error response empty! =>${URL_TRENDING_FILMS}`);
-    }
-    const data = await response.json();
-    return data;
-  } catch (err) {
-    throw new Error(
-      `Error at fetching data at getSeriesTrending url =>${URL_TRENDING_FILMS}`
     );
   }
 }
@@ -61,8 +63,12 @@ export async function getFilmByID(id) {
     const data = await response.json();
     return data;
   } catch (err) {
-    console.error(id)
-    throw new Error(`Error at fetching data at getByID url =>${URL_GET_BY_ID(id)} el id vale ${id}`);
+    console.error(id);
+    throw new Error(
+      `Error at fetching data at getByID url =>${URL_GET_BY_ID(
+        id
+      )} el id vale ${id}`
+    );
   }
 }
 
@@ -76,8 +82,11 @@ export async function GetTrailerByID(id) {
     const data = await response.json();
     return data;
   } catch (err) {
-    console.error(id)
-    throw new Error(`Error at fetching data at getByID url =>${URL_GET_BY_ID(id)} el id vale ${id}`);
+    console.error(id);
+    throw new Error(
+      `Error at fetching data at getByID url =>${URL_GET_BY_ID(
+        id
+      )} el id vale ${id}`
+    );
   }
 }
-

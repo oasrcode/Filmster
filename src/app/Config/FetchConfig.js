@@ -21,8 +21,9 @@ export const URL_TOP_RATED =
   }
 
 export function URL_SEARCH_MOVIE(search) {
-  return `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=es-ES&page=1`;
+  return `https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=es-ES&page=1`;
 }
+
 
 /*--------------------- IMAGES -------------------- */
 export const url_poster = "https://image.tmdb.org/t/p/w220";

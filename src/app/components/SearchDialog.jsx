@@ -1,13 +1,51 @@
 "use client";
 import { useState } from "react";
+import { getFilmBySearch } from "../Service/FilmService";
 
-export default function SearchDialog({prop}) {
+import CardSearch from "./CardSearch";
+export default function SearchDialog({ isOpen, onHandleDialog }) {
+  const [inputValue, setInputValue] = useState("");
+  const [timer, setTimer] = useState(null);
+  const [films, setFilms] = useState([]);
+  const [displayDialog, setDisplayDialog] = useState(false);
 
+  function Search() {
+    if (inputValue.length < 5 || /^\s*$/.test(inputValue)) {
+      setDisplayDialog(false);
+      setFilms([]);
+      return;
+    }
+
+    getFilmBySearch(inputValue).then(
+      (response) => {
+        if (response.results.length>0) {
+          setFilms(response.results);
+          setDisplayDialog(true);
+        } else {
+          setDisplayDialog(false);
+          setFilms([]);
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+
+    const searchTimer = setTimeout(() => {
+      Search(inputValue);
+    }, 1500);
+
+    setTimer(searchTimer);
+  };
 
   return (
     <div
       className={
-        prop
+        isOpen
           ? "absolute top-32 left-0 right-0 mx-auto w-[900px] h-[900px] z-50"
           : "hidden"
       }
@@ -31,20 +69,29 @@ export default function SearchDialog({prop}) {
           </svg>
         </span>
         <input
+          value={inputValue}
           type="text"
           placeholder="Busca tu película o serie ..."
           className="py-8 w-full mx-20  focus:outline-none text-black text-4xl  placeholder:text-4xl pt-10"
           spellCheck="true"
+          onChange={handleInputChange}
         />
       </div>
-
-      {/* <div
-          className={
-            open == true
-              ? " bg-white h-full"
-              : "hidden"
-          }
-        ></div> */}
+      <div
+        className={
+          displayDialog
+            ? "w-full h-[900px] bg-white -mt-2  overflow-y-scroll space-y-2"
+            : "hidden"
+        }
+      >
+        {films?.map((film, index) => (
+          <CardSearch
+            key={film.id}
+            film={film}
+            onHandleDialog={onHandleDialog}
+          />
+        ))}
+      </div>
     </div>
   );
 }

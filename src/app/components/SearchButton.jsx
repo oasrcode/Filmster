@@ -1,10 +1,10 @@
 'use client'
-export default function SearchButton({ prop }) {
+export default function SearchButton({ onHandleDialog }) {
   return (
     <button
       type="button"
       className="hover:scale-125  rounded-full"
-      onClick={prop}
+      onClick={onHandleDialog}
     >
       <svg
         className="fill-none stroke-white hover:fill-amber-400 "
