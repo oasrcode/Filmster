@@ -25,7 +25,13 @@ body {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #222252;
 }
-
+#filterDetailPage{
+  background: rgb(23,23,23);
+  background: -moz-linear-gradient(45deg, rgba(23,23,23,1) 14%, rgba(255,255,255,0) 99%);
+  background: -webkit-linear-gradient(45deg, rgba(23,23,23,1) 14%, rgba(255,255,255,0) 99%);
+  background: linear-gradient(45deg, rgba(23,23,23,1) 14%, rgba(255,255,255,0) 99%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#171717",endColorstr="#ffffff",GradientType=1);
+}
 #loadingFilm {
   -webkit-animation: 2s ease 0s normal forwards 1 fadein; /* Aumenta la duración a 2 segundos para una transición más suave */
   animation: 2s ease 0s normal forwards 1 fadein;

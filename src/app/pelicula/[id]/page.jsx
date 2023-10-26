@@ -8,31 +8,32 @@ export default async function DetailsFilm({ params }) {
   const film = await getFilmByID(id);
 
   return (
-    <div className="flex flex-col w-full h-auto" id="loadingFilm">
+    <div className="flex flex-col w-full h-[865px] " id="loadingFilm">
+    
       <img id="loadingImg"
-        className="object-cover h-[1200px] object-top"
+        className="object-cover object-top h-[865px] "
         src={GetPoster(film.backdrop_path, IMAGE_SIZES.backdrop_sizes.original)}
         alt={film.title}
       />
-      <div className="absolute w-full h-[1200px]  bg-gradient-to-tr from-zinc-950 ,rgba(0,0,0,0.9416141456582633),to-transparent"></div>
 
-      <div className="absolute bottom-10  w-[850px] h-auto ml-10">
+      <div id="filterDetailPage" className="absolute flex-1 w-full  h-[865px]"></div>
+      <div className="absolute bottom-10  w-[700px] h-auto ml-10">
         <div className="flex fle-row w-full h-full items-end">
           <img
-            className="object-cover rounded-md"
+            className="object-cover rounded-md w-52"
             src={GetPoster(film.poster_path, IMAGE_SIZES.poster_sizes.w342)}
             alt={film.title}
           />
 
           <div className="w-full h-full pl-10">
             <div className="flex flex-row  items-end justify-start space-x-4 w-auto  mb-6">
-              <p className="text-3xl border-2 rounded-md p-2">
+              <p className="text-lg border-2 rounded-md p-1">
                 {(Math.round(film.vote_average * 100) / 100).toFixed(1)}
               </p>
-              <p className="text-xl w-full">{film.vote_count + " votos"}</p>
+              <p className="text-md w-full">{film.vote_count + " votos"}</p>
             </div>
-            <h1 className="text-6xl font-bold">{film.title}</h1>
-            <h2 className="text-3xl mt-4">
+            <h1 className="text-4xl font-bold">{film.title}</h1>
+            <h2 className="text-xl mt-4">
               {film.genres.map((genre) => genre.name).join(", ")}
             </h2>
             <p className="text-xl mt-2">{`${new Date(
@@ -40,7 +41,7 @@ export default async function DetailsFilm({ params }) {
             ).getFullYear()}  ·  ${film.runtime} minutos`}</p>
           </div>
         </div>
-        <p className="text-2xl mt-10 text-gray-400">{film.overview}</p>
+        <p className="text-xl mt-10 text-gray-200 w-auto">{film.overview}</p>
       </div>
       <button
         className="absolute  bottom-10 right-0 px-8 py-2 hover:scale-110   bg-gray-200 mr-20 text-xl rounded-md"

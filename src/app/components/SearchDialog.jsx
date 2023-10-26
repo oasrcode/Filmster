@@ -80,7 +80,7 @@ export default function SearchDialog({ isOpen, onHandleDialog }) {
       <div
         className={
           displayDialog
-            ? "w-full h-[900px] bg-white -mt-2  overflow-y-scroll space-y-2"
+            ? "w-full h-[900px] bg-white -mt-2  overflow-y-scroll space-y-2 scroll-smooth"
             : "hidden"
         }
       >
