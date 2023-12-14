@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import { GetPoster, IMAGE_SIZES } from "../Config/FetchConfig";
+import { GetPoster, IMAGE_SIZES } from "../config/FetchConfig";
 export default function CardSearch({ film,onHandleDialog }) {
   const router = useRouter();
 
@@ -10,11 +10,11 @@ export default function CardSearch({ film,onHandleDialog }) {
   return (
     <div
       key={film.id}
-      className="flex flex-row w-auto h-auto mx-10 justify-start items-start  bg-gray-50 rounded-md"
+      className="flex flex-row w-auto h-auto mx-10 justify-start items-start  bg-gray-50 rounded-md pb-10"
       onClick={() => NavigateToFilmDetail(film.id)}
     >
       <img
-        className="object-fill h-auto w-[154px]   rounded-lg "
+        className="hidden object-fill h-auto w-[154px]   rounded-lg "
         src={GetPoster(film.poster_path, IMAGE_SIZES.poster_sizes.w154)}
         alt={film.title}
       />

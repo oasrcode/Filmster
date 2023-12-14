@@ -1,4 +1,4 @@
-import { GetPoster, IMAGE_SIZES } from "../Config/FetchConfig";
+import { GetPoster, IMAGE_SIZES } from "../config/FetchConfig";
 import Link from "next/link";
 export function Card({ content }) {
   return (

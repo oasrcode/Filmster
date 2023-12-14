@@ -1,4 +1,4 @@
-import { getFilmsTrending, getTopRated } from "./Service/FilmService";
+import { getFilmsTrending, getTopRated } from "./service/FilmService";
 import { HorizontalCarousel } from "./components/HorizontalCarousel";
 export default async function Home() {
   const trendingFilmsData = getFilmsTrending();
@@ -14,8 +14,12 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen max-w-screen">
-      <section className="flex flex-row w-full h-[500px] bg-neutral-900"></section>
-
+      <section className="flex flex-col mt-20 ">
+        <h2 className="relative ml-10 md:mx-20 text-3xl" id="caja">
+          Mejor Valoradas
+        </h2>
+        <HorizontalCarousel props={topRatedResults} />
+      </section>
       <section className="flex flex-col mt-20 ">
         <h2 className="relative ml-10 md:mx-20 text-3xl" id="caja">
           Películas en tendencia

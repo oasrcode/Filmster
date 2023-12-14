@@ -10,20 +10,21 @@ export const OPTIONS = {
 /*------------------- URL----------------------- */
 export const URL_TRENDING_FILMS =
   "https://api.themoviedb.org/3/trending/movie/week?language=es-ES";
-export const URL_TRENDING_SERIES =
-  "https://api.themoviedb.org/3/trending/tv/week?language=es-ES";
 
-export const URL_TOP_RATED =
+export const URL_TOP_RATED_FILMS =
   "https://api.themoviedb.org/3/movie/top_rated?language=es-ES&page=1";
 
   export function URL_GET_FILM_BY_ID(id){
     return `https://api.themoviedb.org/3/movie/${id}?language=es-ES/`
   }
 
-export function URL_SEARCH_MOVIE(search) {
+export function URL_SEARCH_FILM(search) {
   return `https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=es-ES&page=1`;
 }
 
+export function URL_SEARCH_TRAILER(id){
+  return `https://api.themoviedb.org/3/movie/${id}/videos?language=es-ES`;
+}
 
 /*--------------------- IMAGES -------------------- */
 export const url_poster = "https://image.tmdb.org/t/p/w220";

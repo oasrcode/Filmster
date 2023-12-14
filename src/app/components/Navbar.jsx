@@ -1,44 +1,40 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
-import SearchButton from "./SearchButton";
-import SearchDialog from "./SearchDialog";
-import { useState } from "react";
-
+import logo from "/public/vercel.svg";
 const Links = [
   {
     label: "Inicio",
     route: "/",
   },
-  // {
-  //   label: "Peliculas",
-  //   route: "/films",
-  // },
-  // {
-  //   label: "Series",
-  //   route: "/series",
-  // },
+  {
+    label: "Peliculas",
+    route: "/films",
+  },
 ];
 
 export default function NavBar() {
-  const [openDialog, setOpenDialog] = useState(false);
-
-  function onHandleDialog() {
-    setOpenDialog(!openDialog);
-  }
   return (
-    <header>
-      <nav className="flex flex-row items-center justify-end  h-24 min-w-full">
-        <ul className="relative flex flex-row justify-center items-center space-x-12 mr-40">
+    <header className="sticky  h-24 min-w-full">
+      <nav className="flex flex-row items-center w-full h-full">
+        <Image
+          className="ml-4 w-20 lg:ml-10 lg:w-40"
+          src={logo}
+          alt="logo"
+          height={100}
+          width={100}
+        />
+        <ul className="relative flex flex-row ml-10 space-x-10">
           {Links.map(({ label, route }) => (
-            <li key={route} className="text-2xl">
+            <li key={route} className="text-lg">
               <Link href={route}>{label}</Link>
             </li>
           ))}
-          <SearchButton onHandleDialog={onHandleDialog} />
         </ul>
       </nav>
-
-      <SearchDialog isOpen={openDialog} onHandleDialog={onHandleDialog} />
+      <div>
+        <input type="search" placeholder="busca tus películas" />
+      </div>
     </header>
   );
 }
