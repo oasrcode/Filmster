@@ -13,15 +13,15 @@ export default async function Home() {
   ]);
 
   return (
-    <main className="min-h-screen max-w-screen">
-      <section className="flex flex-col mt-20 ">
-        <h2 className="relative ml-10 md:mx-20 text-3xl" id="caja">
+    <main className="flex flex-col h-screen w-full my-10 space-y-10">
+      <section className="flex flex-col xl:mx-20 mx-3 space-y-10">
+        <h2 className="text-3xl" >
           Mejor Valoradas
         </h2>
         <HorizontalCarousel props={topRatedResults} />
       </section>
-      <section className="flex flex-col mt-20 ">
-        <h2 className="relative ml-10 md:mx-20 text-3xl" id="caja">
+      <section className="flex flex-col xl:mx-20 mx-3 space-y-10">
+        <h2 className="text-3xl" >
           Películas en tendencia
         </h2>
         <HorizontalCarousel props={trendingFilms} />
