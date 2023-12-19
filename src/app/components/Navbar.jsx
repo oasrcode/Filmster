@@ -3,6 +3,7 @@ import Link from "next/link";
 import logo from "/public/vercel.svg";
 import menu_logo from "/public/vercel.svg";
 import SideMenu from "./SideMenu";
+import SearchBar from "./SearchBar";
 const Links = [
   {
     label: "Inicio",
@@ -10,13 +11,17 @@ const Links = [
   },
   {
     label: "Peliculas",
-    route: "/films",
+    route: "/lista/peliculas",
+  },
+  {
+    label: "Series",
+    route: "/lista/series",
   },
 ];
 
 export default function NavBar() {
   return (
-    <header className="sticky h-24 xl:mx-20">
+    <header className="sticky flex flex-row items-center justify-between top-0 left-0 backdrop-blur-sm z-50 h-24 xl:mx-20">
       <nav className="flex flex-row items-center justify-start h-full w-full ">
         <Image className="ml-3 xl:ml-0" src={logo} alt="logo" height={100} width={100} />
         <ul className="hidden relative xl:flex flex-row ml-10 space-x-10 mr-20">
@@ -28,6 +33,7 @@ export default function NavBar() {
         </ul>
         <SideMenu />
       </nav>
+      <SearchBar/>
     </header>
   );
 }

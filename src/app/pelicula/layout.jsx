@@ -1,3 +1,3 @@
-export default function PeliculaLayout({ children }) {
+export default function FilmLayout({ children }) {
   return <div>{children}</div>;
 }

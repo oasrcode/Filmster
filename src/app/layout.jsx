@@ -9,19 +9,18 @@ import Loading from "./Loading";
 const Lato_Regular = localFont({
   src: [
     {
-      path: '././styles/fonts/Lato-Regular.ttf',
-      weight: '400',
-      style: 'normal',
+      path: "././styles/fonts/Lato-Regular.ttf",
+      weight: "400",
+      style: "normal",
     },
-    
+
     {
-      path: '././styles/fonts/Lato-Bold.ttf',
-      weight: '700',
-      style: 'normal',
+      path: "././styles/fonts/Lato-Bold.ttf",
+      weight: "700",
+      style: "normal",
     },
-    
   ],
-})
+});
 
 export const metadata = {
   title: "Create Next App",
