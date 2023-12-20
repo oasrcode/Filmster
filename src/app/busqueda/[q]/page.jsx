@@ -1,32 +1,12 @@
-"use client";
+import GridSearchResult from "@/app/components/GridSearchResult";
 import { getContentBySearch } from "@/app/service/CommonContentService";
-import { useEffect, useState } from "react";
 
-export default function Search({ params }) {
-  const [content, setContent] = useState([{}]);
-  const [search, setSearch] = useState(null);
-
-  useEffect(() => {
-    setSearch(params);
-    if (search != null) {
-      getContentBySearch(search)
-        .then((response) => {
-          console.log(response);
-          setContent(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  },[search]);
+export default async function Search({ params }) {
+  let searchResult = await getContentBySearch(params.q);
 
   return (
-    <div className="flex flex-col">
-      {content.results?.map((resource) => {
-        <p key={resource.id} className="text-white">
-          {resource.title}
-        </p>;
-      })}
+    <div className="flex flex-col h-screen w-full">
+      <GridSearchResult content={searchResult} />
     </div>
   );
 }
