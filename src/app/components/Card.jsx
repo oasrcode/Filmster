@@ -2,7 +2,10 @@ import { GetPoster, IMAGE_SIZES } from "../config/FetchConfig";
 import Link from "next/link";
 export function Card({ content }) {
   return (
-    <div key={content.id} className="flex-none cursor-pointer mx-auto">
+    <div
+      key={content.id}
+      className="flex-none cursor-pointer mx-auto my-5 hover:scale-105  duration-150 ease-in-out-150 "
+    >
       <Link
         href={`/${content.media_type == "movie" ? "pelicula/" : "serie/"}${
           content.id
