@@ -5,36 +5,50 @@ import FilterButton from "./FilterButton";
 
 export default function GridSearchResult({ content }) {
   const [sortedResults, setSortedResults] = useState(content.results);
+  const [sortDirection, setSortDirection] = useState({
+    title: "asc",
+    date: "asc",
+    score: "asc",
+  });
 
   const sort = useCallback(
     (type) => {
       let sorted;
-
+      const currentDirection = sortDirection[type];
+      const toggleDirection = (direction) =>
+        direction === "asc" ? "desc" : "asc";
       switch (type) {
         case "title":
           sorted = [...content.results].sort((a, b) => {
             let aTitle = a.media_type === "tv" ? a.name : a.title;
             let bTitle = b.media_type === "tv" ? b.name : b.title;
-            return aTitle.localeCompare(bTitle);
+            return currentDirection === "asc"
+              ? aTitle.localeCompare(bTitle)
+              : bTitle.localeCompare(aTitle);
           });
           break;
         case "date":
           sorted = [...content.results].sort((a, b) => {
-            let aDate = a.media_type === "tv" ? a.first_air_date : a.release_date;
-            let bDate = b.media_type === "tv" ? b.first_air_date : b.release_date;
-            return new Date(aDate) - new Date(bDate);
+            let aDate =
+              a.media_type === "tv" ? a.first_air_date : a.release_date;
+            let bDate =
+              b.media_type === "tv" ? b.first_air_date : b.release_date;
+            return  currentDirection === "asc"? new Date(aDate) - new Date(bDate):new Date(bDate) - new Date(aDate);
           });
           break;
         case "score":
           sorted = [...content.results].sort((a, b) => {
-            return b.vote_average - a.vote_average;
+            return currentDirection === "asc"? a.vote_average - b.vote_average :  b.vote_average - a.vote_average;
           });
           break;
         default:
           // No sorting
           sorted = content.results;
       }
-
+      setSortDirection((prevDirection) => ({
+        ...prevDirection,
+        [type]: toggleDirection(currentDirection),
+      }));
       setSortedResults(sorted);
     },
     [sortedResults]
