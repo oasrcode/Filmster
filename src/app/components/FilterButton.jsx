@@ -9,7 +9,7 @@ export default function FilterButton({ callback }) {
       {" "}
       <button
         type="button"
-        class="flex flex-row items-center justify-evenly w-24 h-auto  border border-white rounded-md p-1 hover:scale-105 hover:bg-[#2c2c6d] mr-3 lg:mr-0"
+        className="flex flex-row items-center justify-evenly w-24 h-auto  border border-white rounded-md p-1 hover:scale-105 hover:bg-[#2c2c6d] mr-3 lg:mr-0"
         id="menu-button"
         aria-expanded="true"
         aria-haspopup="true"
