@@ -9,14 +9,14 @@ const Links = [
     label: "Inicio",
     route: "/",
   },
-  {
-    label: "Peliculas",
-    route: "/lista/peliculas",
-  },
-  {
-    label: "Series",
-    route: "/lista/series",
-  },
+  // {
+  //   label: "Peliculas",
+  //   route: "/lista/peliculas",
+  // },
+  // {
+  //   label: "Series",
+  //   route: "/lista/series",
+  // },
 ];
 
 export default function NavBar() {
@@ -31,7 +31,7 @@ export default function NavBar() {
             </li>
           ))}
         </ul>
-        <SideMenu />
+        {/* <SideMenu /> */}
       </nav>
       <SearchBar/>
     </header>

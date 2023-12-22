@@ -1,12 +1,11 @@
 import { GetPoster, IMAGE_SIZES } from "@/app/config/FetchConfig";
 import { getFilmByID } from "../../service/FilmService";
-import Link from "next/link";
 
 export default async function DetailsFilm({ params }) {
   const { id } = params;
 
   const film = await getFilmByID(id);
-  console.log(film);
+
   return (
     <div className="w-full h-screen flex flex-col">
       <div className="hidden lg:block lg:absolute w-full h-screen z-10 bg-gradient-to-tr from-black to-transparent"></div>
@@ -46,14 +45,15 @@ export default async function DetailsFilm({ params }) {
             <h3 className="text-xl mt-4  drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
               {film.genres.map((genre) => genre.name).join(", ")}
             </h3>
-            <p className="text-xl mt-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">{`Inicio ${new Date(
-              film.release_date
-            ).toLocaleDateString("es-ES", {
-              year: "numeric",
-              month: "2-digit",
-              day: "2-digit",
-            })} - ${
-              film.status == "Released" ? "Estrenada" : "Próximamente"
+            <p className="text-xl mt-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">{`${
+              film.status == "Released"
+                ? "Estreno - " +
+                  new Date(film.release_date).toLocaleDateString("es-ES", {
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit",
+                  })
+                : "Próximamente"
             }`}</p>
           </div>
         </div>
