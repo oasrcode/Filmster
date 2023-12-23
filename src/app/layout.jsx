@@ -4,6 +4,7 @@ import "./globals.css";
 
 import localFont from "next/font/local";
 import Loading from "./Loading";
+import Footer from "./components/Footer";
 // const Lato_Regular = localFont({ src: "./styles/fonts/Lato-Regular.ttf" });
 
 const Lato_Regular = localFont({
@@ -34,6 +35,7 @@ export default function RootLayout({ children }) {
         {" "}
         <NavBar />
         <Suspense fallback={<Loading />}>{children}</Suspense>
+        <Footer />
       </body>
     </html>
   );

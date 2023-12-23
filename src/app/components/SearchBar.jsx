@@ -14,7 +14,7 @@ export default function SearchBar() {
   }
 
   return (
-    <div className="absolute right-5 lg:right-0  top-5">
+    <div className="absolute right-5 lg:right-0  top-7">
       <form onSubmit={handleSubmit} >
         <input
           type="search"
@@ -23,7 +23,7 @@ export default function SearchBar() {
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="absolute inset-y-0 my-auto ml-0.5 h-8 w-12 border-r border-transparent stroke-white px-auto peer-focus:border-white peer-focus:stroke-white"
+          className="absolute inset-y-0 my-auto ml-0.5 h-8 w-12 border-r border-transparent stroke-white px-auto peer-focus:border-white peer-focus:stroke-white"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

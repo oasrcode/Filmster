@@ -12,7 +12,7 @@ export default async function Home() {
   ]);
 
   return (
-    <main className="flex flex-col h-screen w-full mb-20  space-y-10">
+    <main className="flex flex-col h-auto w-full space-y-10 mb-10">
       <section className="flex flex-col xl:mx-20 mx-3 space-y-10">
         <h2 className="text-3xl">Películas</h2>
         <HorizontalCarousel props={trendingFilms} />
