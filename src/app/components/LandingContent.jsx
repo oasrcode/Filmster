@@ -25,9 +25,9 @@ export default async function LandingContent() {
         <div class="flex flex-row justify-center items-center space-x-4">
           
           <div className="flex flex-row items-center justify-start mt-3">
-            <p>{randomFilm.vote_average.toFixed(1)} </p>
+            <p>{randomFilm.vote_average.toFixed(2)} </p>
             <svg
-              class="mx-1 w-4 h-4 fill-current text-yellow-500"
+              className="mx-1 w-4 h-4 fill-current text-yellow-500"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
             >
