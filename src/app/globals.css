@@ -25,9 +25,7 @@ body {
   background-color: #222252;
 }
 
-@media (max-width: 1250px) {
-  
-}
+
 #gradientLandingContent {
   background: rgb(0, 0, 0);
   background: -moz-linear-gradient(

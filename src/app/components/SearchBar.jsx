@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function SearchBar() {
   const [inputText, setInputText] = useState("");
- 
+
   const router = useRouter();
 
   function handleSubmit(event) {
@@ -14,11 +14,11 @@ export default function SearchBar() {
   }
 
   return (
-    <div className="absolute right-5 lg:right-0  top-7">
-      <form onSubmit={handleSubmit} >
+    <div className="absolute right-10 lg:right-0  top-7">
+      <form onSubmit={handleSubmit}>
         <input
           type="search"
-          className="peer cursor-pointer relative z-10 h-12 w-12 rounded-full border bg-transparent pl-12 outline-none  focus:w-full focus:cursor-text focus:border-neutral-300 focus:lg:pl-60 focus:pl-32  focus:pr-4"
+          className="peer cursor-pointer relative z-10 h-12 w-12 rounded-full border bg-transparent outline-none  focus:w-full focus:cursor-text focus:border-neutral-300 pl-14 pr-5 focus:lg:w-[400px]"
           onChange={(e) => setInputText(e.target.value)}
         />
         <svg
