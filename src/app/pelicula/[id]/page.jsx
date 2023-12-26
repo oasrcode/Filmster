@@ -10,7 +10,6 @@ export default async function DetailsFilm({ params }) {
     <div className="w-full h-screen flex flex-col">
       <div className="hidden lg:block lg:absolute w-full h-screen z-10 bg-gradient-to-tr from-black to-transparent"></div>
       <img
-        id="loadingImg"
         className="object-top z-0 w-full h-screen"
         src={GetPoster(film.backdrop_path, IMAGE_SIZES.backdrop_sizes.w1280)}
         alt={film.title}
@@ -20,7 +19,6 @@ export default async function DetailsFilm({ params }) {
       <div className="relative flex flex-col lg:absolute bottom-0 left-0 mx-5 mt-5 mb-10 lg:mt-0 lg:mx-10 lg:gap-5 z-20">
         <div className="flex flex-row gap-5">
           <img
-            id="loadingImg"
             className="hidden lg:flex lg:object-fill min-w-[185px]  rounded-md"
             src={GetPoster(film.poster_path, IMAGE_SIZES.poster_sizes.w185)}
             alt={film.title}

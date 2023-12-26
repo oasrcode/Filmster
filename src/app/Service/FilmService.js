@@ -1,7 +1,6 @@
 import {
   OPTIONS,
   URL_GET_FILM_BY_ID,
-  URL_FILM_SEARCH_TRAILER,
   URL_TOP_RATED_FILMS,
   URL_TRENDING_FILMS,
 } from "../config/FetchConfig";

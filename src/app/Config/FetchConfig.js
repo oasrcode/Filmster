@@ -7,8 +7,7 @@ export const OPTIONS = {
   },
 };
 /*------------------- URL Search----------------------- */
-export function URL_SEARCH(text){
- 
+export function URL_SEARCH(text) {
   return `https://api.themoviedb.org/3/search/multi?query=${text}&include_adult=false&language=es-ES&page=1`;
 }
 /*------------------- URL FILMS----------------------- */
@@ -18,13 +17,8 @@ export const URL_TRENDING_FILMS =
 export const URL_TOP_RATED_FILMS =
   "https://api.themoviedb.org/3/movie/top_rated?language=es-ES&page=1";
 
-  export function URL_GET_FILM_BY_ID(id){
-    return `https://api.themoviedb.org/3/movie/${id}?language=es-ES/`
-  }
-
-
-export function URL_FILM_SEARCH_TRAILER(id){
-  return `https://api.themoviedb.org/3/movie/${id}/videos?language=es-ES`;
+export function URL_GET_FILM_BY_ID(id) {
+  return `https://api.themoviedb.org/3/movie/${id}?language=es-ES/`;
 }
 
 /*------------------- URL SERIES----------------------- */
@@ -32,14 +26,12 @@ export const URL_TRENDING_TV =
   "https://api.themoviedb.org/3/trending/tv/week?language=es-ES";
 
 export const URL_TOP_RATED_TV =
-  "https://api.themoviedb.org/3/tv/top_rated?language=es-ES&page=1";
+  "https://api.themoviedb.org/3/tv/top_rated?language=es-ES";
 
-  export function URL_GET_TV_BY_ID(id){
-    return `https://api.themoviedb.org/3/tv/${id}?language=es-ES/`
-  }
-  export function URL_TV_SEARCH_TRAILER(id){
-    return `https://api.themoviedb.org/3/tv/${id}/videos?language=es-ES`;
-  }
+export function URL_GET_TV_BY_ID(id) {
+  return `https://api.themoviedb.org/3/tv/${id}?language=es-ES/`;
+}
+
 /*--------------------- IMAGES -------------------- */
 export const url_poster = "https://image.tmdb.org/t/p/w220";
 
