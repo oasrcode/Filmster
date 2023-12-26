@@ -22,7 +22,7 @@ export default async function LandingContent() {
     >
       <div className="absolute flex flex-col items-start justify-start z-50 top-40 ml-2 lg:top-48 lg:left-64 lg:w-1/3">
         <h2 className="lg:text-5xl text-2xl">{randomFilm.title}</h2>
-        <div class="flex flex-row justify-center items-center space-x-4">
+        <div className="flex flex-row justify-center items-center space-x-4">
           
           <div className="flex flex-row items-center justify-start mt-3">
             <p>{randomFilm.vote_average.toFixed(2)} </p>
