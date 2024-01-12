@@ -2,7 +2,30 @@
 
 import { useState } from "react";
 
-export default function FilterButton({ callback }) {
+const arrowDown = () => {
+  return (
+    <svg fill="white" height="20px" width="20px" viewBox="0 0 330 330">
+      <path
+        d="M216.358,271.76c-2.322-5.605-7.792-9.26-13.858-9.26H180V15c0-8.284-6.716-15-15-15
+c-8.284,0-15,6.716-15,15v247.5h-22.5c-6.067,0-11.537,3.655-13.858,9.26c-2.321,5.605-1.038,12.057,3.252,16.347l37.5,37.5
+C157.322,328.536,161.161,330,165,330s7.678-1.464,10.607-4.394l37.5-37.5C217.396,283.816,218.68,277.365,216.358,271.76z"
+      />
+    </svg>
+  );
+};
+const arrowUp = () => {
+  return (
+    <svg fill="white" height="20px" width="20px" viewBox="0 0 330 330">
+      <path
+        d="M213.107,41.894l-37.5-37.5c-5.857-5.858-15.355-5.858-21.213,0l-37.5,37.5
+c-4.29,4.29-5.573,10.742-3.252,16.347c2.322,5.605,7.792,9.26,13.858,9.26H150V315c0,8.284,6.716,15,15,15c8.284,0,15-6.716,15-15
+V67.5h22.5c6.067,0,11.537-3.655,13.858-9.26C218.68,52.635,217.397,46.184,213.107,41.894z"
+      />
+    </svg>
+  );
+};
+
+export default function FilterButton({ callback, sortDirection }) {
   const [open, setOpen] = useState();
   return (
     <>
@@ -34,30 +57,42 @@ export default function FilterButton({ callback }) {
       {open ? (
         <div className="absolute z-50 flex flex-col items-center justify-evenly mt-48 w-36 h-36 bg-[#060613] rounded-md border border-white mr-3 lg:mr-0">
           <button
-            className="px-10 py-1 rounded-md border border-white text-white font-semibold  hover:bg-[#222252]"
+            className="px-5 py-1 rounded-md border border-white text-white font-semibold  hover:bg-[#222252]"
             onClick={() => {
               callback("title");
               setOpen(false);
             }}
           >
-            Título
+            <span className="flex flex-row gap-4">
+              {" "}
+              Título
+              {sortDirection.title == "asc" ? arrowUp() : arrowDown()}
+            </span>
           </button>{" "}
           <button
-            className="px-10 py-1 rounded-md border border-white text-white font-semibold  hover:bg-[#222252]"
+            className="px-5 py-1 rounded-md border border-white text-white font-semibold  hover:bg-[#222252]"
             onClick={() => {
               callback("date");
               setOpen(false);
             }}
           >
-            Fecha
+            <span className="flex flex-row gap-4">
+              {" "}
+              Fecha
+              {sortDirection.date == "asc" ? arrowUp() : arrowDown()}
+            </span>
           </button>
           <button
-            className="px-5 py-1 rounded-md border border-white text-white font-semibold  hover:bg-[#222252]"
+            className="py-1 rounded-md border border-white text-white font-semibold  hover:bg-[#222252]"
             onClick={() => {
               callback("score"), setOpen(false);
             }}
           >
-            Puntuación
+            <span className="flex flex-row  mx-2">
+              {" "}
+              Puntuación
+              {sortDirection.score == "asc" ? arrowUp() : arrowDown()}
+            </span>
           </button>
         </div>
       ) : null}

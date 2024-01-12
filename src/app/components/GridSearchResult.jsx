@@ -57,7 +57,7 @@ export default function GridSearchResult({ content }) {
   return (
     <>
       <div className="w-full h-10 flex flex-row items-center justify-end">
-        <FilterButton callback={sort} />
+        <FilterButton callback={sort} sortDirection={sortDirection} />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5   h-auto w-full ">
         {sortedResults.map((item) => (
