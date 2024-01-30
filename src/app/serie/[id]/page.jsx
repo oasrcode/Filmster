@@ -1,3 +1,5 @@
+
+
 import { GetPoster, IMAGE_SIZES } from "@/app/config/FetchConfig";
 
 import { getSerieByID } from "@/app/service/SerieService";
@@ -8,20 +10,18 @@ export default async function DetailsSerie({ params }) {
   const serie = await getSerieByID(id);
 
   return (
-    <div className="w-full h-screen flex flex-col">
+    <div className="relative w-full h-screen flex flex-col">
       <div className="hidden lg:block lg:absolute w-full h-screen z-10 bg-gradient-to-tr from-black to-transparent"></div>
       <img
-        id="loadingImg"
         className="object-top z-0 w-full h-screen"
         src={GetPoster(serie.backdrop_path, IMAGE_SIZES.backdrop_sizes.w1280)}
         alt={serie.name}
         width={1280}
         height={1024}
       />
-      <div className="relative flex flex-col lg:absolute bottom-0 left-0 mx-5 mt-5 mb-10 lg:mt-0 lg:mx-10 lg:gap-5 z-20">
+      <div className="relative flex flex-col lg:absolute bottom-0 left-0 mx-5 mt-5 lg:mt-0 lg:mx-10 lg:gap-5 z-20">
         <div className="flex flex-row gap-5">
           <img
-            id="loadingImg"
             className="hidden lg:flex lg:object-fill min-w-[185px]  rounded-md"
             src={GetPoster(serie.poster_path, IMAGE_SIZES.poster_sizes.w185)}
             alt={serie.name}
@@ -60,7 +60,9 @@ export default async function DetailsSerie({ params }) {
         <p className="w-full lg:w-1/3 mt-7 lg:mt-2 text-left drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
           {serie.overview}
         </p>
+     
       </div>
+    
     </div>
   );
 }
