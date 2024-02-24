@@ -1,5 +1,6 @@
 import { GetPoster, IMAGE_SIZES } from "@/app/config/FetchConfig";
 import { getFilmByID } from "../../service/FilmService";
+import TrailerButton from "@/app/components/TrailerButton";
 
 export default async function DetailsFilm({ params }) {
   const { id } = params;
@@ -15,6 +16,7 @@ export default async function DetailsFilm({ params }) {
         alt={film.title}
         width={1280}
         height={1024}
+        fetchPriority="high"
       />
       <div className="relative flex flex-col lg:absolute bottom-0 left-0 mx-5 mt-5 mb-10 lg:mt-0 lg:mx-10 lg:gap-5 z-20">
         <div className="flex flex-row gap-5">
@@ -24,6 +26,7 @@ export default async function DetailsFilm({ params }) {
             alt={film.title}
             width={185}
           />
+
           <div className="flex flex-col items-start justify-end w-auto gap-2">
             <div className="flex flex-row  items-baseline justify-start space-x-4 w-auto  mb-6">
               <p className="text-lg bg-gray-100 text-black font-semibold border-2 rounded-md p-1 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">
@@ -56,10 +59,11 @@ export default async function DetailsFilm({ params }) {
           </div>
         </div>
 
-        <p className="w-full lg:w-1/3 mt-7 lg:mt-2 text-left drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+        <p className="w-full lg:w-1/3 mt-7 lg:mt-2 text-left drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] opacity-70">
           {film.overview}
         </p>
       </div>
+      <TrailerButton path={'pelicula'} prop={id}/>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="relative bottom-0 flex flex-row items-center justify-center  w-full h-20 space-x-5">
+    <footer className="absolute bottom-0 lg:relative flex flex-row items-center justify-center  w-full h-20 space-x-5">
       <a
         href="https://github.com/oasrcode/"
         className=" hover:scale-110"

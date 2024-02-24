@@ -1,5 +1,4 @@
-
-
+import TrailerButton from "@/app/components/TrailerButton";
 import { GetPoster, IMAGE_SIZES } from "@/app/config/FetchConfig";
 
 import { getSerieByID } from "@/app/service/SerieService";
@@ -60,9 +59,8 @@ export default async function DetailsSerie({ params }) {
         <p className="w-full lg:w-1/3 mt-7 lg:mt-2 text-left drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
           {serie.overview}
         </p>
-     
       </div>
-    
+      <TrailerButton path={"serie"} prop={id} />
     </div>
   );
 }

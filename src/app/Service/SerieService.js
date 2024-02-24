@@ -1,6 +1,7 @@
 import {
   OPTIONS,
   URL_GET_TV_BY_ID,
+  URL_GET_TV_TRAILER,
   URL_TRENDING_TV,
 } from "../config/FetchConfig.js";
 
@@ -55,17 +56,17 @@ export async function getSerieByID(id) {
 
 export async function GetTVTrailerByID(id) {
   try {
-    const response = await fetch(URL_TV_SEARCH_TRAILER(id), OPTIONS);
+    const response = await fetch(URL_GET_TV_TRAILER(id), OPTIONS);
 
     if (!response) {
-      throw new Error(`Error response empty! =>${URL_TV_SEARCH_TRAILER(id)}`);
+      throw new Error(`Error response empty! =>${URL_GET_TV_TRAILER(id)}`);
     }
     const data = await response.json();
     return data;
   } catch (err) {
     console.error(id);
     throw new Error(
-      `Error at fetching data at GetTVTrailerByID url =>${URL_TV_SEARCH_TRAILER(
+      `Error at fetching data at GetTVTrailerByID url =>${URL_GET_TV_TRAILER(
         id
       )} id value ${id}`
     );

@@ -21,6 +21,12 @@ export function URL_GET_FILM_BY_ID(id) {
   return `https://api.themoviedb.org/3/movie/${id}?language=es-ES/`;
 }
 
+export function URL_GET_FILM_TRAILER(id) {
+  return `
+  
+https://api.themoviedb.org/3/movie/${id}/videos?language=es-ES`;
+}
+
 /*------------------- URL SERIES----------------------- */
 export const URL_TRENDING_TV =
   "https://api.themoviedb.org/3/trending/tv/week?language=es-ES";
@@ -30,6 +36,10 @@ export const URL_TOP_RATED_TV =
 
 export function URL_GET_TV_BY_ID(id) {
   return `https://api.themoviedb.org/3/tv/${id}?language=es-ES/`;
+}
+export function URL_GET_TV_TRAILER(id) {
+  return `
+  https://api.themoviedb.org/3/tv/${id}/videos?language=es-ES`;
 }
 
 /*--------------------- IMAGES -------------------- */
