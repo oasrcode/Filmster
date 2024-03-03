@@ -12,18 +12,9 @@ export default async function DetailsSerie({ params }) {
 
   const serie = await getSerieByID(id);
   const container = {
-    hidden: {
-      opacity: 0,
-      transition: {
-        when: "afterChildren",
-      },
-    },
+    hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 5,
-      },
     },
   };
 
