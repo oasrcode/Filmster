@@ -7,8 +7,8 @@ export const OPTIONS = {
   },
 };
 /*------------------- URL Search----------------------- */
-export function URL_SEARCH(text) {
-  return `https://api.themoviedb.org/3/search/multi?query=${text}&include_adult=false&language=es-ES&page=1`;
+export function URL_SEARCH(text,number) {
+  return `https://api.themoviedb.org/3/search/multi?query=${text}&include_adult=false&language=es-ES&page=${number}`;
 }
 /*------------------- URL FILMS----------------------- */
 export const URL_TRENDING_FILMS =

@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from "/public/vercel.svg";
-import menu_logo from "/public/vercel.svg";
-import SideMenu from "./SideMenu";
+
 import SearchBar from "./SearchBar";
 const Links = [
   {

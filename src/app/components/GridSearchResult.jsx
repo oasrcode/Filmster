@@ -33,12 +33,16 @@ export default function GridSearchResult({ content }) {
               a.media_type === "tv" ? a.first_air_date : a.release_date;
             let bDate =
               b.media_type === "tv" ? b.first_air_date : b.release_date;
-            return  currentDirection === "asc"? new Date(aDate) - new Date(bDate):new Date(bDate) - new Date(aDate);
+            return currentDirection === "asc"
+              ? new Date(aDate) - new Date(bDate)
+              : new Date(bDate) - new Date(aDate);
           });
           break;
         case "score":
           sorted = [...content.results].sort((a, b) => {
-            return currentDirection === "asc"? a.vote_average - b.vote_average :  b.vote_average - a.vote_average;
+            return currentDirection === "asc"
+              ? a.vote_average - b.vote_average
+              : b.vote_average - a.vote_average;
           });
           break;
         default:
@@ -51,7 +55,7 @@ export default function GridSearchResult({ content }) {
       }));
       setSortedResults(sorted);
     },
-    [sortedResults]
+    [sortDirection,content.results]
   );
 
   return (
@@ -60,8 +64,8 @@ export default function GridSearchResult({ content }) {
         <FilterButton callback={sort} sortDirection={sortDirection} />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5   h-auto w-full ">
-        {sortedResults.map((item) => (
-          <Card key={item.id} content={item} />
+        {sortedResults.map((item,i) => (
+          <Card key={item.id} content={item} index={i}/>
         ))}
       </div>
     </>

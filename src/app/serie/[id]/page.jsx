@@ -1,5 +1,9 @@
 import TrailerButton from "@/app/components/TrailerButton";
 import { GetPoster, IMAGE_SIZES } from "@/app/config/FetchConfig";
+import {
+  MotionDetailContent,
+  MotionDetailImageReveal,
+} from "@/app/motions/Motions";
 
 import { getSerieByID } from "@/app/service/SerieService";
 
@@ -7,9 +11,30 @@ export default async function DetailsSerie({ params }) {
   const { id } = params;
 
   const serie = await getSerieByID(id);
+  const container = {
+    hidden: {
+      opacity: 0,
+      transition: {
+        when: "afterChildren",
+      },
+    },
+    show: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 5,
+      },
+    },
+  };
 
   return (
-    <div className="relative w-full h-screen flex flex-col">
+    <MotionDetailContent
+      variants={container}
+      initial="hidden"
+      animate="show"
+      transition={{ ease: "easeInOut", duration: 1 }}
+      className="relative w-full h-screen flex flex-col"
+    >
       <div className="hidden lg:block lg:absolute w-full h-screen z-10 bg-gradient-to-tr from-black to-transparent"></div>
       <img
         className="object-top z-0 w-full h-screen"
@@ -61,6 +86,6 @@ export default async function DetailsSerie({ params }) {
         </p>
       </div>
       <TrailerButton path={"serie"} prop={id} />
-    </div>
+    </MotionDetailContent>
   );
 }

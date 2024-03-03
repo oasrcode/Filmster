@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { MotionInputSearchBar } from "../motions/Motions";
 
 export default function SearchBar() {
   const [inputText, setInputText] = useState("");
@@ -13,12 +14,16 @@ export default function SearchBar() {
     router.replace(`/busqueda/${inputText}`);
   }
 
+ 
   return (
     <div className="absolute right-10 lg:right-0  top-7">
       <form onSubmit={handleSubmit}>
-        <input
+        <MotionInputSearchBar
+         whileTap={{ scale: 1.1 }}
+         whileFocus={{width:"200px"}}
+         transition={{ type: "spring", stiffness: 400, damping: 10 }}
           type="search"
-          className="peer cursor-pointer relative z-10 h-12 w-12 rounded-full border bg-transparent outline-none  focus:w-full focus:cursor-text focus:border-neutral-300 pl-14 pr-5 focus:lg:w-[400px]"
+          className="peer cursor-pointer relative z-10 h-12 w-12 rounded-full border bg-transparent outline-none pl-14 pr-5 "
           onChange={(e) => setInputText(e.target.value)}
         />
         <svg

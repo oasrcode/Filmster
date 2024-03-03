@@ -1,14 +1,27 @@
 import { GetPoster, IMAGE_SIZES } from "@/app/config/FetchConfig";
 import { getFilmByID } from "../../service/FilmService";
 import TrailerButton from "@/app/components/TrailerButton";
+import { MotionDetailContent } from "@/app/motions/Motions";
 
 export default async function DetailsFilm({ params }) {
   const { id } = params;
 
   const film = await getFilmByID(id);
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+    },
+  };
   return (
-    <div className="w-full h-screen flex flex-col">
+    <MotionDetailContent
+      variants={container}
+      initial="hidden"
+      animate="show"
+      transition={{ ease: "easeInOut", duration: 1 }}
+      className="w-full h-screen flex flex-col"
+    >
       <div className="hidden lg:block lg:absolute w-full h-screen z-10 bg-gradient-to-tr from-black to-transparent"></div>
       <img
         className="object-top z-0 w-full h-screen"
@@ -63,7 +76,7 @@ export default async function DetailsFilm({ params }) {
           {film.overview}
         </p>
       </div>
-      <TrailerButton path={'pelicula'} prop={id}/>
-    </div>
+      <TrailerButton path={"pelicula"} prop={id} />
+    </MotionDetailContent>
   );
 }

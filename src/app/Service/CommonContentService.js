@@ -1,8 +1,9 @@
+'use server'
 import { OPTIONS, URL_SEARCH } from "../config/FetchConfig";
 
-export async function getContentBySearch(search) {
+export async function getContentBySearch(search,numberPage) {
   try {
-    const response = await fetch(URL_SEARCH(search), OPTIONS);
+    const response = await fetch(URL_SEARCH(search,numberPage), OPTIONS);
     if (!response) {
       throw new Error(`Error response empty! =>${URL_SEARCH(search)}`);
     }

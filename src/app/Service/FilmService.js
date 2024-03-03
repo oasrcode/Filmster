@@ -48,7 +48,7 @@ export async function getFilmByID(id) {
     const data = await response.json();
     return data;
   } catch (err) {
-    console.error(id);
+  
     throw new Error(
       `Error at fetching data at getFilmByID url =>${URL_GET_FILM_BY_ID(
         id
@@ -67,7 +67,7 @@ export async function GetFilmTrailerByID(id) {
     const data = await response.json();
     return data;
   } catch (err) {
-    console.error(id);
+  
     throw new Error(
       `Error at fetching data at GetFilmTrailerByID url =>${URL_GET_FILM_TRAILER(
         id

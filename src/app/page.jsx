@@ -3,6 +3,7 @@ import { HorizontalCarousel } from "./components/HorizontalCarousel";
 import { getSerieTrending } from "./service/SerieService";
 import LandingContent from "./components/LandingContent";
 
+
 export default async function Home() {
   const trendingFilmsData = getFilmsTrending();
   const trendingSeriesData = getSerieTrending();
