@@ -9,7 +9,7 @@ export default function TrailerButton({ prop, path }) {
     <>
       <button
         type="button"
-        className="absolute bottom-[295px] right-5 lg:bottom-10 lg:right-10 bg-neutral-300 hover:bg-neutral-50 hover:scale-105 z-50 text-black rounded-md px-4"
+        className="relative  bg-neutral-300 hover:bg-neutral-50 hover:scale-105  text-black rounded-md"
         title="Ver trailer"
         onClick={navigateToTrailer}
       >

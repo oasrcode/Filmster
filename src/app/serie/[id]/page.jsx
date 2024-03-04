@@ -24,17 +24,19 @@ export default async function DetailsSerie({ params }) {
       initial="hidden"
       animate="show"
       transition={{ ease: "easeInOut", duration: 1 }}
-      className="relative w-full h-screen flex flex-col"
+      className="absolute top-0 flex flex-col w-full h-screen"
     >
-      <div className="hidden lg:block lg:absolute w-full h-screen z-10 bg-gradient-to-tr from-black to-transparent"></div>
+      <div className="absolute w-full h-screen aspect-video z-10 bg-gradient-to-tr from-black from-20% via-gray-950 via-30% to-transparent"></div>
+
       <img
-        className="object-top z-0 w-full h-screen"
+        className="w-full h-screen"
         src={GetPoster(serie.backdrop_path, IMAGE_SIZES.backdrop_sizes.w1280)}
         alt={serie.name}
         width={1280}
         height={1024}
       />
-      <div className="relative flex flex-col lg:absolute bottom-0 left-0 mx-5 mt-5 lg:mt-0 lg:mx-10 lg:gap-5 z-20">
+
+      <div className="relative flex flex-col lg:absolute bottom-0 left-0 lg:right-0  mt-5 z-20 lg:w-11/12 lg:mx-auto mb-20 gap-10">
         <div className="flex flex-row gap-5">
           <img
             className="hidden lg:flex lg:object-fill min-w-[185px]  rounded-md"
@@ -72,11 +74,13 @@ export default async function DetailsSerie({ params }) {
           </div>
         </div>
 
-        <p className="w-full lg:w-1/3 mt-7 lg:mt-2 text-left drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-          {serie.overview}
-        </p>
+        <div className="flex flex-row items-center justify-between w-full">
+          <p className="w-full lg:w-1/3 mt-7 lg:mt-2 text-left drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+            {serie.overview}
+          </p>
+          <TrailerButton path={"serie"} prop={id} />
+        </div>
       </div>
-      <TrailerButton path={"serie"} prop={id} />
     </MotionDetailContent>
   );
 }

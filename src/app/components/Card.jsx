@@ -111,7 +111,6 @@ export function Card({ content, index }) {
             href={`/${content.media_type == "movie" ? "pelicula/" : "serie/"}${
               content.id
             }`}
-            prefetch={true}
             replace={false}
           >
             <div className="w-full h-10 rounded-tr-lg rounded-tl-lg bg-[#222252] flex flex-row items-center justify-between">
