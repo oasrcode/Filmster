@@ -32,7 +32,7 @@ export default async function DetailsFilm({ params }) {
         fetchPriority="high"
       />
 
-      <div className="relative flex flex-col lg:absolute bottom-0 left-0 lg:right-0  mt-5 z-20 lg:w-11/12 lg:mx-auto mb-20 gap-10">
+      <div className="relative flex flex-col lg:absolute bottom-0 left-0 lg:right-0  mt-5 z-20 lg:w-11/12 lg:mx-auto mx-10 mb-20 gap-10">
         <div className="flex flex-row gap-5">
           <img
             className="hidden lg:flex lg:object-fill min-w-[185px]  rounded-md"
@@ -41,14 +41,21 @@ export default async function DetailsFilm({ params }) {
             width={185}
           />
 
-          <div className="flex flex-col items-start justify-end w-auto gap-2">
-            <div className="flex flex-row  items-baseline justify-start space-x-4 w-auto  mb-6">
-              <p className="text-lg bg-gray-100 text-black font-semibold border-2 rounded-md p-1 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">
-                {film.vote_average.toFixed(1)}
-              </p>
-              <p className="text-md w-full drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">
-                {film.vote_count + " votos"}
-              </p>
+          <div className="flex flex-col items-start justify-end w-full gap-2">
+            <div className="flex flex-row items-start justify-between w-full">
+              {" "}
+              <div className="flex flex-row  items-baseline justify-start space-x-4 w-auto  mb-6">
+                <p className="text-lg bg-gray-100 text-black font-semibold border-2 rounded-md p-1 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">
+                  {film.vote_average.toFixed(1)}
+                </p>
+                <p className="text-md w-full drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">
+                  {film.vote_count + " votos"}
+                </p>
+              </div>
+              <div className="block lg:hidden">
+                {" "}
+                <TrailerButton path={"pelicula"} prop={id} />
+              </div>
             </div>
 
             <h1 className="text-5xl font-bold  text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
@@ -72,14 +79,16 @@ export default async function DetailsFilm({ params }) {
             }`}</p>
           </div>
         </div>
-        <div className="flex flex-row items-center justify-between w-full">
+        <div className="flex flex-col lg:flex-row gap-10 items-center justify-between w-full">
           <p className="w-full lg:w-1/3 mt-7 lg:mt-2 text-left drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
             {film.overview}
           </p>
-          <TrailerButton path={"pelicula"} prop={id} />
+          <div className="hidden lg:block">
+            {" "}
+            <TrailerButton path={"pelicula"} prop={id} />
+          </div>
         </div>
       </div>
-    
     </MotionDetailContent>
   );
 }

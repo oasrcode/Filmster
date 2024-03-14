@@ -34,7 +34,8 @@ export default function RootLayout({ children }) {
       <body className={Lato_Regular.className}>
         {" "}
         <NavBar />
-        <Suspense fallback={<Loading />}>{children}</Suspense>
+        {/* <Suspense fallback={<Loading />}>{children}</Suspense> */}
+        {children}
         {/* <Footer /> */}
       </body>
     </html>

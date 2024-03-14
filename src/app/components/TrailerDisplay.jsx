@@ -1,8 +1,34 @@
+"use client";
+import YouTube from "react-youtube";
+// thumbnail  <img
+// src={`https://img.youtube.com/vi/${prop.key}/hqdefault.jpg`}
+// alt="Thumbnail"
+// />
 export default function TrailerDisplay({ prop }) {
-    //w-[1020px] h-[850px]
+  const opts = {
+    height: "100%",
+    width: "100%",
+
+    playerVars: {
+      autoplay: 1,
+    },
+  };
+
+  const onReady = (event) => {
+    // access to player in all event handlers via event.target
+    console.log(event.target)
+    event.target.playVideo();
+  };
   return (
-    <div className="flex items-start justify-center bg-black mb-20">
-      <iframe className="w-full aspect-video" allowFullScreen frameBorder="0"  src={`https://www.youtube.com/embed/${prop.key}`}></iframe>
-    </div>
+    <>
+     
+      <YouTube
+        className="aspect-video h-screen w-full"
+        videoId={prop.key}
+        opts={opts}
+        onReady={onReady}
+      />
+     
+    </>
   );
 }

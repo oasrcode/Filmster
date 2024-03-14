@@ -1,6 +1,7 @@
 import { GetPoster, IMAGE_SIZES } from "../config/FetchConfig";
 import Link from "next/link";
 import { MotionCardHoverAnimation } from "../motions/Motions";
+import Image from "next/image";
 
 const ratingStar = (
   <svg width="20px" height="20px" viewBox="0 -2.12 95.444 95.444">
@@ -83,17 +84,17 @@ export function Card({ content, index }) {
       transition: {
         delay: index * 0.05,
         ease: "easeInOut",
-        duration: 1,
+        duration: 0.4,
       },
     },
   };
 
   return (
     <>
-      {content.poster_path && content.backdrop_path ? (
+      {content.poster_path ? (
         <MotionCardHoverAnimation
           key={content.id}
-          className="relative flex-none cursor-pointer mx-auto my-5"
+          className="relative flex-none cursor-pointer mx-auto my-5 "
           whileHover={{
             scale: 1.06,
             transition: {
@@ -112,6 +113,7 @@ export function Card({ content, index }) {
               content.id
             }`}
             replace={false}
+            prefetch={true}
           >
             <div className="w-full h-10 rounded-tr-lg rounded-tl-lg bg-[#222252] flex flex-row items-center justify-between">
               <span
@@ -131,20 +133,25 @@ export function Card({ content, index }) {
                 {ratingStar}
               </span>
             </div>
-            <img
-              className="object-cover h-[342px] rounded-br-lg rounded-bl-lg "
+            <Image
+              className="object-cover h-[342px] rounded-br-lg rounded-bl-lg bg-[#222252]"
               src={GetPoster(
                 content.poster_path,
                 IMAGE_SIZES.poster_sizes.w342
               )}
-              alt={content.title}
+              alt={"Imagen de "+content.name}
               title={content.name}
+              width={228}
+              height={342}
+              
+              priority
             />
           </Link>
         </MotionCardHoverAnimation>
       ) : (
-        <div className="relative flex-none cursor-pointer my-5 h-[342px] w-[228px] bg-black rounded-lg items-center justify-center">
-          <div className="w-[100%] h-[100%] flex items-center justify-center">
+        <div className="relative flex-none  mx-auto my-5 bg-[#222252] rounded-lg h-[382px] w-[228px] cursor-not-allowed">
+          <div className=" flex flex-row w-full h-full items-center justify-center ">
+            {" "}
             <span>{noImage}</span>
           </div>
         </div>

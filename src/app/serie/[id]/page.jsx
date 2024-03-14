@@ -26,17 +26,17 @@ export default async function DetailsSerie({ params }) {
       transition={{ ease: "easeInOut", duration: 1 }}
       className="absolute top-0 flex flex-col w-full h-screen"
     >
-      <div className="absolute w-full h-screen aspect-video z-10 bg-gradient-to-tr from-black from-20% via-gray-950 via-30% to-transparent"></div>
+      <div className="absolute mt-24 md:mt-0 w-full h-screen aspect-video z-10 bg-gradient-to-tr from-black from-20% via-gray-950 via-30% to-transparent"></div>
 
       <img
-        className="w-full h-screen"
+        className="w-full h-screen mt-24 md:mt-0"
         src={GetPoster(serie.backdrop_path, IMAGE_SIZES.backdrop_sizes.w1280)}
         alt={serie.name}
         width={1280}
         height={1024}
       />
 
-      <div className="relative flex flex-col lg:absolute bottom-0 left-0 lg:right-0  mt-5 z-20 lg:w-11/12 lg:mx-auto mb-20 gap-10">
+      <div className="relative flex flex-col lg:absolute bottom-0 left-0 lg:right-0  mt-5 z-20 lg:w-11/12 lg:mx-auto mx-10 mb-20 gap-10">
         <div className="flex flex-row gap-5">
           <img
             className="hidden lg:flex lg:object-fill min-w-[185px]  rounded-md"
@@ -44,14 +44,20 @@ export default async function DetailsSerie({ params }) {
             alt={serie.name}
             width={185}
           />
-          <div className="flex flex-col items-start justify-end w-auto gap-2">
-            <div className="flex flex-row  items-baseline justify-start space-x-4 w-auto  mb-6">
-              <p className="text-lg bg-gray-100 text-black font-semibold border-2 rounded-md p-1 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">
-                {serie.vote_average.toFixed(1)}
-              </p>
-              <p className="text-md w-full drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">
-                {serie.vote_count + " votos"}
-              </p>
+          <div className="flex flex-col items-start justify-end w-full gap-2">
+            <div className="flex flex-row items-start justify-between w-full">
+              <div className="flex flex-row  items-baseline justify-start space-x-4 w-auto  mb-6">
+                <p className="text-lg bg-gray-100 text-black font-semibold border-2 rounded-md p-1 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">
+                  {serie.vote_average.toFixed(1)}
+                </p>
+                <p className="text-md w-full drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">
+                  {serie.vote_count + " votos"}
+                </p>
+              </div>
+              <div className="block lg:hidden">
+                {" "}
+                <TrailerButton path={"serie"} prop={id} />
+              </div>
             </div>
 
             <h1 className="text-5xl font-bold  text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
@@ -78,7 +84,9 @@ export default async function DetailsSerie({ params }) {
           <p className="w-full lg:w-1/3 mt-7 lg:mt-2 text-left drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
             {serie.overview}
           </p>
+          <div className="hidden lg:block">
           <TrailerButton path={"serie"} prop={id} />
+          </div>
         </div>
       </div>
     </MotionDetailContent>
