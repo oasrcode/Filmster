@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 const returnIcon = (
   <svg
     fill="#000000"
@@ -16,5 +16,15 @@ const returnIcon = (
   </svg>
 );
 export default function ReturnButton() {
-  return <button type="button" onClick={() => router.back()}>{returnIcon}</button>;
+
+  const router = useRouter()
+  return (
+    <button
+      className="relative  bg-slate-700 opacity-80  hover:opacity-100 hover:bg-slate-900  hover:scale-105  text-white rounded-md w-32 flex flex-row items-center justify-center "
+      type="button"
+      onClick={() => router.back()}
+    >
+      {returnIcon}
+    </button>
+  );
 }

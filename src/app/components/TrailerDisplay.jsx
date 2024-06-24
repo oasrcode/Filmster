@@ -16,7 +16,6 @@ export default function TrailerDisplay({ prop }) {
 
   const onReady = (event) => {
     // access to player in all event handlers via event.target
-    console.log(event.target)
     event.target.playVideo();
   };
   return (
